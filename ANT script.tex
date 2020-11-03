@@ -12,14 +12,35 @@
 \newpage
 %	\setcounter{page}{1}
 \thispagestyle{plain}
-This script does not represent any replacement for the lectures given by professor Mih\u{a}ilescu and will not be proof-read by him or anyone else in charge, these are basically my personal notes. Therefore I can not guarantee for its completeness and it is highly probably, that I will not write down any proofs given for theorems (because that's simply no fun in \LaTeX.)\hspace{\fill} glhf
+This script does not represent any replacement for the lectures given by professor Mih\u{a}ilescu and will not be proof-read by him or anyone else in charge, these are basically my personal notes. Therefore I can not guarantee for its completeness and I will probably not write down any proofs given for theorems (because that's simply no fun in \LaTeX.)\hspace{\fill} glhf
 \newpage
 \mainmatter	
 \setstretch{1.15}			%Zeilenabstand. Kann man auch später nochmal reinhämmern, falls man es ändern will
 	
 	
-	
-	
+	\section{Non archimedean valuations and $p$-adic numbers}
+		Let $a,b$ be 'large' positive integers, $a > b$ and $p$ a prime
+	\begin{defn}
+		For $a \in \Z_{\geq 0}$ we define the \emph{valuation of $a$} $v_p(a)$ as the largest power of $p$ dividing $a$, that is
+		\[ a = p^m \cdot n,\ (n,p) = 1 \implies v_p(a) = m. \]
+		From that we conclude $ a \in \Z \implies v_p(a) = v_p(|a|) $ and $ a = \frac{a_1}{a_2} \in \Q \implies v_p(a) = v_p(a_1) - v_p(a_2). $
+	\end{defn}
+	$ |a|_p = p^{-v_p(a)} $\\
+	This is an absolute value
+	\begin{enumerate}
+		\item $|a|_p = 0 \iff a = 0$
+		\item $|a+b|_p \leq |a|_p+|b|_p$\\
+		$|a+b|_p \leq \max\{|a|_p,|b|_p\}$ \emph{ultra-metric}
+	\end{enumerate}
+	We can endow $\Q$ with the $p$-adic metric and build Cauchy sequences. Let $\mathcal{C}$ be the space of Cauchy sequences on $\Q$ with respect to $|\cdot|_p$ and let $\mathcal{N} = \{z = (z_n)_{n \in \N} \mid z \in \mathcal{C},\ \lim_{n \to \infty}(z_n) = 0\}$. Then $\mathcal{C}$ ist an integral ring and $\mathcal{N}$ is a maximal ideal therein. So $\mathcal{C}/\mathcal{N}$ is a field called $\Q_p$.
+	\begin{exmp}
+		$z = (1,p,p^2,\dotsc,p^n,\dotsc) \in \mathcal{N},\ |p^n|_p = p^{-n} \to 0$. Note that a power series $ f(z) = \sum_{n \in \N} a_n z^n,\ |a_n + a_{n+1}| \leq \max\{a_n,a_{n+1}\} $ verifies $ |\sum_{n \in \N} a_nz^n|_p \leq |a_nz^n| $ off falling $ a_nz^n $
+	\end{exmp}
+	\begin{defn}
+		For $ x \in \Q_p $ we define $ |x|_p = \lim|x_n|_p $ with $|x_n| \to x$\\
+		$ \Z_p = \{x \in \Q_p \mid v_p(x) \geq 0\} = \mathcal{C}(\Z)/\mathcal{N}/(\Z) $ (valuation ring of $\Q_p$)
+	\end{defn}	
+	$ \left( \Z_p/p^n\Z_p \right) \cong \left( \Z/p^n\Z \right) $
 	
 	
 	
