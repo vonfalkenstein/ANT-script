@@ -3,6 +3,12 @@
 
 %\usepackage{showframe}
 
+\makeindex[title=Definitions,intoc]
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thethm}{\arabic{chapter}.\arabic{section}.\arabic{thm}}
+
 \begin{document}
 	\frontmatter
 	\maketitle
@@ -16,9 +22,12 @@ This script does not represent any replacement for the lectures given by profess
 \newpage
 \mainmatter	
 \setstretch{1.15}			%Zeilenabstand. Kann man auch später nochmal reinhämmern, falls man es ändern will
-	
-	
-	\section{Non-Archimedean valuations and $p$-adic numbers}
+
+
+\addtocounter{chapter}{2}
+\chapter{Valuations and completions}
+
+	\section{Equivalent valuations and theorem of Ostrowski}
 		Let $a,b$ be 'large' positive integers, $a > b$ and $p$ a prime
 	\begin{defn}[Valuation]
 		For $a \in \Z_{\geq 0}$ we define the \emph{valuation of $a$} $v_p(a)$ as the largest power of $p$ dividing $a$, that is
@@ -26,8 +35,8 @@ This script does not represent any replacement for the lectures given by profess
 		From that we conclude $ a \in \Z \implies v_p(a) = v_p(|a|) $ and $ a = \frac{a_1}{a_2} \in \Q \implies v_p(a) = v_p(a_1) - v_p(a_2). $ We also define $ v_p(0) = \infty $.
 	\end{defn}
 	
-	\begin{defn}[$p$-adic metric]
-		We define the \emph{$p$-adic metric} to be$ |a|_p = p^{-v_p(a)} $. From this, it follows that
+	\begin{defn}[$p$-adic absolute value]
+		We define the \emph{$p$-adic absolute value} to be$ |a|_p = p^{-v_p(a)} $. From this, it follows that
 		\begin{enumerate}
 			\item $|a|_p = 0 \iff a = 0$
 			\item $ |ab|_p = |a|_p |b|_p $
@@ -46,9 +55,5 @@ This script does not represent any replacement for the lectures given by profess
 	
 	
 	
-	
-	
-	
-	
-%	\listoftheorems[ignoreall,show={defn,defn*}]
+
 \end{document}
