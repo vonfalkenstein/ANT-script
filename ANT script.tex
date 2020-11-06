@@ -27,33 +27,36 @@ This script does not represent any replacement for the lectures given by profess
 \addtocounter{chapter}{2}
 \chapter{Valuations and completions}
 
-	\section{Equivalent valuations and theorem of Ostrowski}
-		Let $a,b$ be 'large' positive integers, $a > b$ and $p$ a prime
-	\begin{defn}[Valuation]
+	\section{Equivalent valuations and the theorem of Ostrowski}
+	
+	\begin{defn}[Valuation]\index{Valuation}
 		For $a \in \Z_{\geq 0}$ we define the \emph{valuation of $a$} $v_p(a)$ as the largest power of $p$ dividing $a$, that is
 		\[ a = p^m \cdot n,\ (n,p) = 1 \implies v_p(a) = m. \]
 		From that we conclude $ a \in \Z \implies v_p(a) = v_p(|a|) $ and $ a = \frac{a_1}{a_2} \in \Q \implies v_p(a) = v_p(a_1) - v_p(a_2). $ We also define $ v_p(0) = \infty $.
 	\end{defn}
 	
-	\begin{defn}[$p$-adic absolute value]
+	\begin{defn}[$p$-adic absolute value]\index{p@$p$-adic absolute value}
 		We define the \emph{$p$-adic absolute value} to be$ |a|_p = p^{-v_p(a)} $. From this, it follows that
 		\begin{enumerate}
-			\item $|a|_p = 0 \iff a = 0$
-			\item $ |ab|_p = |a|_p |b|_p $
-			\item $|a+b|_p \leq |a|_p+|b|_p$, $|a+b|_p \leq \max\{|a|_p,|b|_p\}$
+			\item $|a|_p = 0 \iff a = 0$,
+			\item $ |ab|_p = |a|_p |b|_p $ and
+			\item $|a+b|_p \leq |a|_p+|b|_p$, making $|\cdot|_p$ a metric. Since it also also satisfies $|a+b|_p \leq \max\{|a|_p,|b|_p\}$, it is an ultrametric.
 		\end{enumerate}
 	\end{defn}
-	We can endow $\Q$ with the $p$-adic metric and build Cauchy sequences. Let $\mathcal{C}$ be the space of Cauchy sequences on $\Q$ with respect to $|\cdot|_p$ and let $\mathcal{N} = \{z = (z_n)_{n \in \N} \mid z \in \mathcal{C},\ \lim_{n \to \infty}(z_n) = 0\}$. Then $\mathcal{C}$ ist an integral ring and $\mathcal{N}$ is a maximal ideal therein. So $\mathcal{C}/\mathcal{N}$ is a field called $\Q_p$.
-	\begin{exmp}
-		$z = (1,p,p^2,\dotsc,p^n,\dotsc) \in \mathcal{N},\ |p^n|_p = p^{-n} \to 0$. Note that a power series $ f(z) = \sum_{n \in \N} a_n z^n,\ |a_n + a_{n+1}| \leq \max\{a_n,a_{n+1}\} $ verifies $ |\sum_{n \in \N} a_nz^n|_p \leq |a_nz^n| $ of falling $ a_nz^n $.
-	\end{exmp}
-	\begin{defn}
-		For $ x \in \Q_p $ we define $ |x|_p = \lim|x_n|_p $ with $|x_n| \to x$\\
-		$ \Z_p = \{x \in \Q_p \mid v_p(x) \geq 0\} = \mathcal{C}(\Z)/\mathcal{N}/(\Z) $ (valuation ring of $\Q_p$)
-	\end{defn}	
-	$ \left( \Z_p/p^n\Z_p \right) \cong \left( \Z/p^n\Z \right) $
-	
-	
-	
 
+	We can endow $\Q$ with the $p$-adic metric and build Cauchy sequences. Let $\mathcal{C}$ be the space of Cauchy sequences on $\Q$ with respect to $|\cdot|_p$ and let $\mathcal{N} = \{z = (z_n)_{n \in \N} \mid z \in \mathcal{C},\ \lim_{n \to \infty}(z_n) = 0\}$. Then $\mathcal{C}$ ist an integral ring and $\mathcal{N}$ is a maximal ideal therein. Therefore $\mathcal{C}/\mathcal{N}$ is a field called $\Q_p$.
+	
+	\begin{exmp}
+		$z = (1,p,p^2,\dotsc,p^n,\dotsc) \in \mathcal{N},\ |p^n|_p = p^{-n} \to 0$. Note that a power series $ f(z) = \sum_{n \in \N} a_n z^n,\ |a_n + a_{n+1}| \leq \max\{a_n,a_{n+1}\} $ verifies $ |\sum_{n \in \N} a_nz^n|_p \leq |a_nz^n| $ if $ a_nz^n $ are falling to 0.
+	\end{exmp}
+
+	\begin{defn}[Limits in $\Q_p$]\index{Limits in $\Q_p$}
+		For $ x \in \Q_p $ we define $ |x|_p = \lim|x_n|_p $ with $|x_n| \to x$\\
+		$ \Z_p = \{x \in \Q_p \mid v_p(x) \geq 0\} = \mathcal{C}(\Z)/\mathcal{N}(\Z) $ (valuation ring of $\Q_p$)
+	\end{defn}	
+	$ \left( \Z_p/p^n\Z_p \right) \cong \left( \Z/p^n\Z \right) $\\
+	Let $ S \subset \Z $ be representatives of $ \F_p $. Then $ \Z_p = \left\{ x = \sum\limits_{\substack{n=0\\x_n \in S}}^\infty x_n p^n \right\}. $
+	
+	
+	\printindex
 \end{document}
