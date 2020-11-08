@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_GB
 \documentclass{jvfscript}
 \usepackage{antstyle}
 
@@ -35,7 +36,7 @@ This script does not represent any replacement for the lectures given by profess
 		From that we conclude $ a \in \Z \implies v_p(a) = v_p(|a|) $ and $ a = \frac{a_1}{a_2} \in \Q \implies v_p(a) = v_p(a_1) - v_p(a_2). $ We also define $ v_p(0) = \infty $.
 	\end{defn}
 	
-	\begin{defn}[$p$-adic absolute value]\index{p@$p$-adic absolute value}
+	\begin{defn}[$p$-adic absolute value]\index{P@$p$-adic absolute value}
 		We define the \emph{$p$-adic absolute value} to be$ |a|_p = p^{-v_p(a)} $. From this, it follows that
 		\begin{enumerate}
 			\item $|a|_p = 0 \iff a = 0$,
@@ -51,11 +52,47 @@ This script does not represent any replacement for the lectures given by profess
 	\end{exmp}
 
 	\begin{defn}[Limits in $\Q_p$]\index{Limits in $\Q_p$}
-		For $ x \in \Q_p $ we define $ |x|_p = \lim|x_n|_p $ with $|x_n| \to x$\\
+		For $ x \in \Q_p $ with $|x_n| \to x$ we define the absolute value of $x$ as $ |x|_p = \lim|x_n|_p $. \\
 		$ \Z_p = \{x \in \Q_p \mid v_p(x) \geq 0\} = \mathcal{C}(\Z)/\mathcal{N}(\Z) $ (valuation ring of $\Q_p$)
 	\end{defn}	
-	$ \left( \Z_p/p^n\Z_p \right) \cong \left( \Z/p^n\Z \right) $\\
-	Let $ S \subset \Z $ be representatives of $ \F_p $. Then $ \Z_p = \left\{ x = \sum\limits_{\substack{n=0\\x_n \in S}}^\infty x_n p^n \right\}. $
+	From these definitions we can show two facts:
+	\begin{enumerate}[label = {\roman*})]
+		\item $ \left( \Z_p/p^n\Z_p \right) \cong \left( \Z/p^n\Z \right) $
+		\item Let $ S \subset \Z $ be representatives of $ \F_p $. Then $ \Z_p = \left\{ x = \sum\limits_{\substack{n=0\\x_n \in S}}^\infty x_n p^n \right\}. $ 
+	\end{enumerate}
+	
+	\begin{defn}[Projective limits]\index{Projective limits}
+		Let $ \{R_i\}_{i \in \N} $ be a family of (integral) rings and suppose there are homomorphisms $ \varphi_{m,n}: R_m \to R_n \ \forall\, m > n $, such that $ \varphi_{n,k} \circ \varphi_{m,n} = \varphi_{m,k} \ \forall\, m>n>k $. There exists a ring $R$ unique up to isomorphism together with maps $ \varphi_n: R \to R_n $ with $ \varphi_n = \varphi_{m,n} \circ \varphi_m $ and a universal property
+		\[ \begin{tikzcd}
+			&&&&&A \arrow[dd,dashed,"\psi_n"] \arrow[rrr,"\rho"] &&&R \arrow[dd] \arrow[ddl,"\varphi_m"] \arrow[ddlll,"\varphi_n"] \arrow[ddllllllll, bend right = 2.5] \\
+			\\
+			R_0 & R_1 \arrow[l] & \cdots \arrow{l} & R_k \arrow[l] & \cdots \arrow{l} & R_n \arrow{l} \arrow{l}\arrow[ll,bend left, "\varphi_{n,k}"] & \cdots \arrow{l} & R_m \arrow{l} \arrow[ll,bend left, "\varphi_{m,n}"] \arrow[llll,bend left=50, "\varphi_{m,k}"] & \cdots \arrow{l}
+		\end{tikzcd} \]
+		If $A$ is a ring with maps $ \psi_n: A \to R_n $ and commuting diagrams, then there is a map $ \rho: A \to R $, such that $ \psi_n = \varphi_n \circ \rho $.
+	\end{defn}
+	$R$ is the projective limit of the $R_n$. The maps $ \varphi_{m,n} $ are not required to be surjective in general (though they are in the case of $p$-adic numbers). In the case of $p$-adic numbers, we use $ R_n = \Z/p^n\Z $ and $ \varphi_{m,n}: R_m \to R_n $ as the reduction modulo $p^n$. This defines $\Z_p = \lim\limits_{\infty \leftarrow n} (\Z/p^n\Z)$. The elements $ z \in \Z_p $ are identified by the sequences $ (z_n)_{n \in \N} $, where $ z_n = \varphi_n (z). $
+	
+	\begin{rem}
+		For $ z \in \Z_p $ as a projective limit, we have $ z = \lim\limits_{n \to \infty} \varphi(z) $ in terms of the $p$-adic metric.
+	\end{rem}
+	
+	\begin{exmp}
+		$ R_n = \Z/n\Z $. We have a lattice of homomorphisms $ \varphi_{m,n}: R_m \to R_n $, which are surjective iff $n \mid m$. This gives us the projective limit $ \hat{\Z} = \lim\limits_{\infty \leftarrow n} R_n $, which happens zo be $ \hat{\Z} = Gal(\overbar{F_p}/F_p) = Gal(\Q^{(ab)}/\Q). $
+	\end{exmp}
+
+	\begin{lem}
+		If $ (c_n)_{n \in \N} \subset \Z_p $ converges to $0$, then $ \sum_{n \in \N} c_n $ exists.
+	\end{lem}
+	
+	\begin{thm}
+		Let $ f \in \Z[x] $ be irreducible and $ \bar{f} \in \F_p[x] $ be its image under reduction, and assume this image to be square-free. Then there is a $\varphi \mid n = \deg(f)$ and $\varphi$ polynomials $ g_i(x) = \F_p[x] $ of degree $ \frac{n}{\varphi} $, such that
+		\begin{enumerate}[label={\roman*})]
+			\item $ \bar{f}(x) = \prod_{i=1}^{\varphi} g_i(x) $,
+			\item $ \F_p[x]/g_i(x) $ are isomorphic.
+		\end{enumerate}
+	\end{thm}
+	Hensel: $ f(x) = \prod_{i=1}^{\frac{n}{\varphi}} g_i^H(x) $ with $ g_i^H(x) \in \Z_p[x] $ and $ g_i^H(x) \equiv g_i(x) \mod p\Z_p[x] $. Then we can define $ K_i = \Q_p[x]/g_i^H(x) $. These are finite algebraic extensions over $\Q_p$.
+	
 	
 	
 	\printindex
