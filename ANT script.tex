@@ -58,7 +58,7 @@ This script does not represent any replacement for the lectures given by profess
 	From these definitions we can show two facts:
 	\begin{enumerate}[label = {\roman*})]
 		\item $ \left( \Z_p/p^n\Z_p \right) \cong \left( \Z/p^n\Z \right) $
-		\item Let $ S \subset \Z $ be representatives of $ \F_p $. Then $ \Z_p = \left\{ x = \sum\limits_{\substack{n=0\\x_n \in S}}^\infty x_n p^n \right\}. $ 
+		\item Let $ S \subset \Z $ be representatives of $ \Fbb_p $. Then $ \Z_p = \left\{ x = \sum\limits_{\substack{n=0\\x_n \in S}}^\infty x_n p^n \right\}. $ 
 	\end{enumerate}
 	
 	\begin{defn}[Projective limits]\index{Projective limits}
@@ -85,10 +85,10 @@ This script does not represent any replacement for the lectures given by profess
 	\end{lem}
 	
 	\begin{thm}
-		Let $ f \in \Z[x] $ be irreducible and $ \bar{f} \in \F_p[x] $ be its image under reduction, and assume this image to be square-free. Then there is a $\varphi \mid n = \deg(f)$ and $\varphi$ polynomials $ g_i(x) = \F_p[x] $ of degree $ \frac{n}{\varphi} $, such that
+		Let $ f \in \Z[x] $ be irreducible and $ \bar{f} \in \Fbb_p[x] $ be its image under reduction, and assume this image to be square-free. Then there is a $\varphi \mid n = \deg(f)$ and $\varphi$ polynomials $ g_i(x) = \Fbb_p[x] $ of degree $ \frac{n}{\varphi} $, such that
 		\begin{enumerate}[label={\roman*})]
 			\item $ \bar{f}(x) = \prod_{i=1}^{\varphi} g_i(x) $,
-			\item $ \F_p[x]/g_i(x) $ are isomorphic.
+			\item $ \Fbb_p[x]/g_i(x) $ are isomorphic.
 		\end{enumerate}
 	\end{thm}
 	Hensel: $ f(x) = \prod_{i=1}^{\frac{n}{\varphi}} g_i^H(x) $ with $ g_i^H(x) \in \Z_p[x] $ and $ g_i^H(x) \equiv g_i(x) \mod p\Z_p[x] $. Then we can define $ K_i = \Q_p[x]/g_i^H(x) $. These are finite algebraic extensions over $\Q_p$.
